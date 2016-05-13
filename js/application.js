@@ -97,6 +97,13 @@ function render() {
   } else {
     $('button').text('start game');
   }
+  for (var i = 0; i < 9; i++) {
+    if (i === avocado) {
+      $('#' +  i).text('a')
+    } else {
+      $('#' +  i).text(' ')
+    }
+  }
 }
 
 //interaction
