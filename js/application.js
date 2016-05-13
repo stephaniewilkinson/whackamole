@@ -14,6 +14,8 @@ function start() {
   isPlaying = true;
 }
 
+
+
 //helpers
 
 function renderState() {
@@ -65,7 +67,28 @@ function renderState() {
   }
 }
 
+function toggleIsPlaying() {
+  if (isPlaying) {
+    isPlaying = false;
+  } else {
+    isPlaying = true;
+  }
+}
 
+//avocado pops up in rnadom squares
+
+function randomIndex() {
+  return Math.floor(Math.random() * 9);
+}
+
+function placeAvocado() {
+  if (isPlaying) {
+    avocado = randomIndex();
+    renderState();
+  }
+}
+
+setInterval(placeAvocado, 500);
 
 //render
 function render() {
@@ -79,6 +102,7 @@ function render() {
 //interaction
 
 $('button').on('click', function() {
+  toggleIsPlaying();
   start();
   render();
 });
